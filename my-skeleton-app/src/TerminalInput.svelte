@@ -30,17 +30,10 @@
 
             if (response.ok) {
                 const data = await response.json();
-                result = data.response
+                result += "\n" +  data.response
             } else {
                 result = `Error 1: ${response.statusText}`;
             }
-        // } catch (error) {
-        //     if (error instanceof Error) {
-        //         result = `Error 2: ${error.message}`;
-        //     } else {
-        //         result = "An unknown error occurred.";
-        //     }
-        // }
 }
 
 
@@ -81,7 +74,6 @@
         display: flex;
         gap: 10px; /* Adds a gap between the children */
     }
-
     .flex-container > input {
         flex: 1; /* Makes the inputs take up equal width */
     }
