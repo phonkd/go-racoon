@@ -3,6 +3,7 @@ package main
 import (
 	"net/http"
 
+	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
 	"github.com/gorcon/rcon"
 )
@@ -16,7 +17,13 @@ type RconCommand struct {
 
 func main() {
 	r := gin.Default()
+	r.Use(cors.New(cors.Config{
+		AllowOrigins: []string{"*"},
+		AllowMethods: []string{"PUT", "PATCH", "POST", "GET"},
+		AllowHeaders: []string{"Origin", "Content-Type"},
+	}))
 	r.POST("/rcon", func(ctx *gin.Context) {
+		ctx.Header("Content-Type", "application/json")
 		var command RconCommand
 		err := ctx.BindJSON(&command)
 		if err != nil {
@@ -34,7 +41,7 @@ func main() {
 		if err != nil {
 			ctx.String(http.StatusInternalServerError, "failed to execute command %s on rcon host %s", command.Command, command.Host)
 		}
-		ctx.String(http.StatusOK, "%s", response)
+		ctx.String(http.StatusOK, `{"response":"%s"}`, response)
 
 	})
 	r.Run("0.0.0.0:8080")
