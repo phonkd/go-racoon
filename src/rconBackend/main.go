@@ -22,6 +22,7 @@ func main() {
 		AllowMethods: []string{"PUT", "PATCH", "POST", "GET"},
 		AllowHeaders: []string{"Origin", "Content-Type"},
 	}))
+	r.Static("/", "./website/build")
 	r.POST("/rcon", func(ctx *gin.Context) {
 		ctx.Header("Content-Type", "application/json")
 		var command RconCommand

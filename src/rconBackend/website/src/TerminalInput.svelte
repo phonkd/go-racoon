@@ -10,7 +10,7 @@
         // Handle the command submission
         // When you receive the result from the server:
         // result = ...your response from the server...;
-        const url = `http://localhost:8080/rcon`;
+        const url = `/rcon`;
         console.log("huan")
         const payload = {
             "command": command,
