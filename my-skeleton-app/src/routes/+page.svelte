@@ -7,7 +7,10 @@
   
 <div class="container h-full mx-auto flex justify-center">
 	<div class="space-y-5">
-		<div class=modee><LightSwitch /></div>
+		<div class="idk"><LightSwitch 
+			rounded="rounded-lg"
+		/>
+		</div>
 		<h1 class="h1">Minecraft RCON terminal</h1>
 		<p>Command:</p>
 		<ul>
@@ -21,9 +24,11 @@
 </div>
 <style>
     .space-y-5 {
-        margin-top: 100px;
+        margin-top: 50px;
     }
-	.modee {
-		margin-left: 92%;
+	.idk {
+		display: flex;
+		justify-content: flex-end;
+		margin-right: 9%
 	}
 </style>

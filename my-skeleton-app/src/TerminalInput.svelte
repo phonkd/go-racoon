@@ -48,7 +48,7 @@
         background-color: #222;
         color: limegreen;
         font-family: "Courier New", monospace;
-        border-radius: 5px;
+        border-radius: 8px;
         margin-top: 10px;
     }
 
@@ -57,10 +57,10 @@
         width: 600px;
         padding: 10px;
         border: 1px solid #333;
-        background-color: #111;
-        color: white;
+        background-color: #222;
+        color: rgb(201, 120, 79);
         font-family: "Courier New", monospace;
-        border-radius: 5px;
+        border-radius: 8px;
         height: 500px; /* set a fixed height so it's always visible */
         overflow: auto; /* in case content becomes too long */
     }
@@ -70,41 +70,56 @@
         width: 100%;
         box-sizing: border-box;
         border: 1px solid #333;
-        background-color: #111;
-        color: white;
+        background-color: #222;
+        color: rgb(201, 120, 79);
         font-family: "Courier New", monospace;
+        border-radius: 8px;
     }
     .flex-container {
         display: flex;
-        gap: 10px; /* Adds a gap between the children */
+        /* gap: 10px; */
     }
     .flex-container > input {
         flex: 1; /* Makes the inputs take up equal width */
+    }
+    .port {
+        max-width: 15%;
+        margin-right: 16px;
+    }
+    .host {
+        max-width: 30%;
+        margin-right: 3px;
+        
+        
+    }
+    .password {
+        max-width: 43%;
     }
 </style>
 
 
 <div class="flex-container">
     <input 
-        class="input-field"
+        class="input-field host"
         type="text" 
         bind:value={host} 
         placeholder="Enter host..."
     />
 
     <input 
-        class="input-field"
+        class="input-field port"
         type="text" 
         bind:value={port} 
-        placeholder="Enter port..."
+        placeholder="Port"
     />
-</div>
-<input 
-    class="input-field"
+    <input 
+    class="input-field password"
     type="password" 
     bind:value={password} 
     placeholder="Enter password..."
 />
+</div>
+
 
 <!-- Input for Port -->
 
